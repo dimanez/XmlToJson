@@ -1,0 +1,21 @@
+{
+  "name" : "e1",
+  "text" : null,
+  "children" : [ {
+    "name" : "e2",
+    "text" : null,
+    "children" : [ {
+      "name" : "e3",
+      "text" : null,
+      "children" : [ {
+        "name" : "e4",
+        "text" : null,
+        "children" : [ {
+          "name" : "e5",
+          "text" : "text",
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  } ]
+}
