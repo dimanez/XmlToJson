@@ -15,6 +15,7 @@ import java.io.IOException;
 public class Main {
 
     private XmlFile file;
+    private int elementCount;
 
     /**
      * Парсинг файла формата Xml в JSON.
@@ -31,6 +32,7 @@ public class Main {
             Element element = document.getDocumentElement();
 
             file = new XmlFile(element.getNodeName(), element.getNodeValue());
+            elementCount = 1;
             visitChildNodes(element.getChildNodes(), file);
             createJsonFile(file, inputFileName);
         }catch (FileNotFoundException fnfe){
@@ -84,6 +86,7 @@ public class Main {
                 XmlFile file = xmlFile.addChildren(node.getNodeName(),val);
                 if (node.hasChildNodes()) {
                     //Если имеются еще наследники, то проходим по циклу снова.
+                    elementCount++;
                     visitChildNodes(node.getChildNodes(), file);
                 }
             }
@@ -96,6 +99,10 @@ public class Main {
      */
     public XmlFile getFile() {
         return file;
+    }
+
+    public int getElementCount() {
+        return elementCount;
     }
 
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
